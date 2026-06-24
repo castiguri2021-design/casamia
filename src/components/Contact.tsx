@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { icon: MapPin, title: 'Adresă', lines: ['Strada San Marco Nr. 1-5', 'Tunari, Ilfov (near Otopeni)'] },
-            { icon: Phone, title: 'Telefon', lines: ['0768 676 141'], href: 'tel:0768676141' },
+            { icon: Phone, title: 'Telefon', lines: ['+40 720 718 719'], href: 'tel:+40720718719' },
             { icon: Mail, title: 'Email', lines: ['ristorantemia@gmail.com'], href: 'mailto:ristorantemia@gmail.com' },
             { icon: Clock, title: 'Program', lines: ['Luni-Joi: 12:00-23:00', 'Vineri-Sâmb: 12:00-00:00', 'Duminică: 13:00-22:00'] },
           ].map((item, i) => (
@@ -46,7 +46,7 @@ export default function Contact() {
           <h3 className="font-serif text-2xl font-bold text-white mb-4">Rezervare Rapidă</h3>
           <p className="text-white/60 mb-6">Pentru rezervări și evenimente private, sună-ne sau trimite un email.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:0768676141" className="inline-flex items-center gap-2 px-6 py-3 bg-mia-red text-white rounded-full hover:bg-red-700 transition-colors">
+            <a href="tel:+40720718719" className="inline-flex items-center gap-2 px-6 py-3 bg-mia-red text-white rounded-full hover:bg-red-700 transition-colors">
               <Phone size={18} /> Sună Acum
             </a>
             <a href="mailto:ristorantemia@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-full hover:bg-white/10 transition-colors">

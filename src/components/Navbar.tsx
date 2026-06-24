@@ -48,9 +48,9 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:0768676141" className="flex items-center gap-2 text-sm text-mia-gold hover:text-white transition-colors">
+            <a href="tel:+40720718719" className="flex items-center gap-2 text-sm text-mia-gold hover:text-white transition-colors">
               <Phone size={14} />
-              <span>0768 676 141</span>
+              <span>+40 720 718 719</span>
             </a>
           </div>
 
@@ -75,9 +75,9 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="pt-6 border-t border-white/10">
-                <a href="tel:0768676141" className="flex items-center gap-3 text-mia-gold">
+                <a href="tel:+40720718719" className="flex items-center gap-3 text-mia-gold">
                   <Phone size={18} />
-                  <span>0768 676 141</span>
+                  <span>+40 720 718 719</span>
                 </a>
               </div>
             </div>

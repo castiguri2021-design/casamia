@@ -220,7 +220,7 @@ export default function App() {
             <div className="p-6 bg-stone-800 rounded-xl">
               <Phone className="mx-auto text-red-500 mb-3" size={32} />
               <h3 className="font-bold text-lg mb-2">Telefon</h3>
-              <a href="tel:0768676141" className="text-red-400 hover:underline text-sm md:text-base">0768 676 141</a>
+              <a href="tel:+40720718719" className="text-red-400 hover:underline text-sm md:text-base">+40 720 718 719</a>
             </div>
             <div className="p-6 bg-stone-800 rounded-xl">
               <Clock className="mx-auto text-red-500 mb-3" size={32} />

@@ -10,7 +10,7 @@ export default function Footer() {
             <p className="font-cinzel text-sm text-mia-gold tracking-widest">Cucina di Fuoco</p>
           </div>
           <div className="space-y-2">
-            <p className="flex items-center gap-2 text-white/60 text-sm"><Phone size={14} className="text-mia-gold" /> 0768 676 141</p>
+            <p className="flex items-center gap-2 text-white/60 text-sm"><Phone size={14} className="text-mia-gold" /> +40 720 718 719</p>
             <p className="flex items-center gap-2 text-white/60 text-sm"><Mail size={14} className="text-mia-gold" /> ristorantemia@gmail.com</p>
             <p className="flex items-center gap-2 text-white/60 text-sm"><MapPin size={14} className="text-mia-gold" /> Str. San Marco 1-5, Tunari</p>
           </div>

@@ -51,7 +51,7 @@ export function useNvidiaAI() {
 
     } catch (error) {
       console.error('AI Error:', error);
-      const errorMsg = 'Îmi pare rău, am o problemă tehnică momentan. Te rog sună la 0768676141 pentru asistență imediată.';
+      const errorMsg = 'Îmi pare rău, am o problemă tehnică momentan. Te rog sună la +40720718719 pentru asistență imediată.';
       setMessages([
         ...newMessages,
         { role: 'assistant', content: errorMsg },
