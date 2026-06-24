@@ -1,0 +1,9 @@
+
+#lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:10000;justify-content:center;align-items:center;flex-direction:column;padding:10px}
+#lb-img{max-width:96vw;max-height:82vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+#lb-close,#lb-prev,#lb-next{position:absolute;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:1.8rem;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+#lb-close:active,#lb-prev:active,#lb-next:active{background:rgba(255,255,255,0.35)}
+#lb-close{top:12px;right:12px}
+#lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+#lb-next{right:12px;top:50%;transform:translateY(-50%)}
+@media(max-width:650px){#lb-prev,#lb-next{display:none} #lb-overlay{padding:5px}}

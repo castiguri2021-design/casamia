@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0c0a09" />
+    <meta name="description" content="Ristorante Casa Mia - Cucina di Fuoco. Autenticitate italiană în fiecare farfurie. Rezervă masa în Tunari, Ilfov." />
+    <title>Ristorante Casa Mia - Cucina di Fuoco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="/static/css/mobile.css">
+<link rel="stylesheet" href="/static/css/lightbox.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Ristorante Mia",
+  "image": "https://ristorantemia.com/static/img/hero.jpg",
+  "@id": "https://ristorantemia.com",
+  "url": "https://ristorantemia.com",
+  "telephone": "+40700000000",
+  "priceRange": "$$",
+  "servesCuisine": "Italian",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Strada Exemplu nr. 1",
+    "addressLocality": "București",
+    "postalCode": "010101",
+    "addressCountry": "RO"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "12:00",
+    "closes": "23:00"
+  }
+}
+</script>
+
+
+<!-- SEO & OpenGraph Tags -->
+<meta name="description" content="Ristorante Mia - Autentică bucătărie italiană. Rezervă o masă online și descoperă cele mai bune paste și pizza din oraș.">
+<meta name="theme-color" content="#d4af37">
+<meta property="og:title" content="Ristorante Mia | Autentică bucătărie italiană">
+<meta property="og:description" content="Rezervă o masă online și descoperă cele mai bune paste și pizza din oraș. Te așteptăm!">
+<meta property="og:image" content="https://ristorantemia.com/static/img/hero.jpg">
+<meta property="og:url" content="https://ristorantemia.com">
+<meta property="og:type" content="restaurant">
+<meta name="twitter:card" content="summary_large_image">
+
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  <script src="/static/js/reservation.js"></script>
+
+<button id="openReservationBtn" style="position:fixed; bottom:20px; right:20px; background:#d4af37; color:#fff; padding:15px 25px; border-radius:50px; border:none; box-shadow:0 4px 10px rgba(0,0,0,0.3); font-size:1.1rem; font-weight:bold; z-index:999; display:flex; align-items:center; gap:8px;">📅 Rezervă</button>
+<div id="reservationModal">
+  <div class="modal-content">
+    <button class="modal-close" id="closeReservationModal">&times;</button>
+    <h2>Rezervă o Masă</h2>
+    <form id="reservationForm">
+      <input type="text" name="name" placeholder="Nume complet" required>
+      <input type="tel" name="phone" placeholder="Telefon" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="date" name="date" required>
+      <input type="time" name="time" required>
+      <select name="guests" required>
+        <option value="">Număr persoane</option>
+        <option value="1">1 Persoană</option><option value="2">2 Persoane</option>
+        <option value="3">3 Persoane</option><option value="4">4 Persoane</option>
+        <option value="5">5+ Persoane</option>
+      </select>
+      <textarea name="notes" placeholder="Mențiuni (opțional)"></textarea>
+      <button type="submit" style="background:#d4af37; color:#fff; padding:16px; border:none; border-radius:8px; font-size:1.1rem; font-weight:bold; width:100%;">Trimite Rezervarea</button>
+    </form>
+  </div>
+</div>
+
+<script src="/static/js/lightbox.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  function track(action) {
+    fetch('/api/track', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ action: action, time: new Date().toISOString(), url: window.location.href })
+    }).catch(err => console.log('Track failed'));
+  }
+  document.getElementById('openReservationBtn')?.addEventListener('click', () => track('open_reservation'));
+  document.querySelectorAll('a[href^="tel:"]')?.forEach(a => a.addEventListener('click', () => track('call_phone')));
+  document.querySelectorAll('a[href*="maps"]')?.forEach(a => a.addEventListener('click', () => track('open_maps')));
+});
+</script>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const foodPics = ['https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80', 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&q=80', 'https://images.unsplash.com/photo-1572441713132-c542fc4fe282?w=800&q=80', 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80', 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80'];
+        // Căutăm imaginile din secțiunea de meniu
+        const menuImgs = document.querySelectorAll('#menu img, .menu-item img, .menu-grid img, .dish img');
+        menuImgs.forEach((img, index) => {
+            // Înlocuim cu poze reale cu preparate
+            img.src = foodPics[index % foodPics.length];
+            img.loading = 'lazy';
+        });
+    });
+    </script>
+    
+</body>
+</html>
