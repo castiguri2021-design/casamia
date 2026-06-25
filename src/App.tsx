@@ -146,7 +146,18 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const [activeCat, setActiveCat] = useState(foodMenu[0].id);
+    // Slideshow Logic
+  const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev: number) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+const [activeCat, setActiveCat] = useState(foodMenu[0].id);
   const [showTop, setShowTop] = useState(false);
 
   const restaurantAddress = "Strada San Marco 1-5, 077180 Tunari";
