@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import OrderPage from './pages/OrderPage';
 import ReviewsPage from './pages/ReviewsPage';
+import SEOItalianTunari from './pages/SEOItalianTunari';
+import SEOPizzaTunari from './pages/SEOPizzaTunari';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, Clock, Mail, ChevronUp, MessageCircle, X, Send, UtensilsCrossed, Navigation, ExternalLink } from 'lucide-react';
 
@@ -151,6 +153,10 @@ function App() {
       <Routes>
         <Route path="/meniu" element={<OrderPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/restaurant-italian-tunari" element={<SEOItalianTunari />} />
+        <Route path="/pizza-tunari" element={<SEOPizzaTunari />} />
+        <Route path="/restaurant-italian-tunari" element={<SEOItalianTunari />} />
+        <Route path="/pizza-tunari" element={<SEOPizzaTunari />} />
         <Route path="/" element={
     <div className="font-sans bg-stone-50 text-stone-800 scroll-smooth">
       
