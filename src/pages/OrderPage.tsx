@@ -113,7 +113,7 @@ export default function OrderPage() {
                         </div>
                       ) : (
                         <button onClick={() => addToCart(item, activeCat)}
-                          className="w-full md:w-auto bg-red-800 text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-md border border-red-950 touch-manipulation active:bg-red-900">
+                          className="bg-red-800 text-white px-4 py-2 rounded-lg text-xs font-bold shadow-md border border-red-950 touch-manipulation active:bg-red-900 w-fit">
                           Adaugă în Coș
                         </button>
                       )}
