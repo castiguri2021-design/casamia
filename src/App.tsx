@@ -148,6 +148,16 @@ function App() {
 
     // Slideshow Logic
   const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev: number) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Slideshow Logic
+  const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
