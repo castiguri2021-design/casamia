@@ -93,10 +93,10 @@ export default function OrderPage() {
               const inCart = cart.find(c => c.id === `${activeCat}-${item.name}`);
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-xl overflow-hidden shadow-sm border border-stone-100 active:scale-[0.98] transition-transform flex flex-col sm:flex-row">
+                  className="bg-white rounded-xl overflow-hidden shadow-sm border border-stone-100 active:scale-[0.98] transition-transform flex flex-col md:flex-row">
                   
                   {/* IMAGINE - Full width pe mobile, fixă pe desktop */}
-                  <div className="relative w-full sm:w-28 md:w-32 h-40 sm:h-auto flex-shrink-0 bg-stone-100">
+                  <div className="relative w-full md:w-32 h-48 md:h-auto flex-shrink-0 bg-stone-100">
                     <img src={`/images/food/${item.image}`} alt={item.name} 
                       className="w-full h-full object-cover"
                       onError={(e) => (e.target as HTMLImageElement).src = '/images/loc1.jpg'} />
@@ -109,8 +109,8 @@ export default function OrderPage() {
                       <p className="text-[11px] md:text-xs text-stone-500 line-clamp-2 mb-2 leading-snug">{item.ingredients}</p>
                     </div>
                     
-                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-stone-50 sm:border-none sm:pt-0 sm:mt-0">
-                      <span className="text-red-800 font-black text-base md:text-xl">{item.price} LEI</span>
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-stone-100 md:border-none md:pt-0 md:mt-0">
+                      <span className="text-red-800 font-black text-lg md:text-xl">{item.price} LEI</span>
                       
                       {inCart ? (
                         <div className="flex items-center gap-1 bg-stone-100 rounded-full p-0.5 border border-stone-200">
@@ -127,7 +127,7 @@ export default function OrderPage() {
                       ) : (
                         /* BUTON ADAUGĂ - LAT PE MOBILE, COMPACT PE DESKTOP */
                         <button onClick={() => addToCart(item, activeCat)} 
-                          className="w-full sm:w-auto bg-red-800 text-white px-4 py-2 sm:py-1.5 rounded-lg sm:rounded-full text-xs sm:text-sm font-bold active:bg-red-900 shadow-sm border border-red-950 whitespace-nowrap touch-manipulation">
+                          className="w-full md:w-auto bg-red-800 text-white px-4 py-3 md:py-1.5 rounded-lg md:rounded-full text-sm md:text-xs font-bold active:bg-red-900 shadow-sm border border-red-950 whitespace-nowrap touch-manipulation mt-2 md:mt-0">
                           Adaugă în Coș
                         </button>
                       )}
