@@ -141,7 +141,6 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 4000); // Schimbă poza la fiecare 4 secunde
     return () => clearInterval(interval);
   }, []);
@@ -150,7 +149,6 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev: number) => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -159,7 +157,6 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev: number) => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
