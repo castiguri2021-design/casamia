@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MapPin, Clock, Mail, ChevronUp, MessageCircle, X, Send, UtensilsCrossed, Navigation, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, ChevronUp } from 'lucide-react';
 import { foodMenu } from './data/foodMenu';
 import Reviews from './components/Reviews';
 import Navbar from './components/Navbar';
