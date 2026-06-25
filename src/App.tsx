@@ -213,10 +213,18 @@ function App() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto"
         >
-          <p className="text-red-500 tracking-[0.3em] uppercase text-xs md:text-sm mb-3 font-bold">Cucina di Fuoco</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-4 md:mb-6">
-            Ristorante <span className="text-red-600">Casa Mia</span>
-          </h1>
+          <div className="flex flex-col items-center justify-center mb-6 md:mb-8">
+            <p className="font-cinzel text-stone-400 tracking-[0.4em] uppercase text-sm md:text-base mb-2 font-medium">
+              Ristorante
+            </p>
+            <h1 className="font-serif font-bold text-6xl md:text-8xl lg:text-9xl text-white leading-none drop-shadow-2xl">
+              Casa <span className="text-red-600">Mia</span>
+            </h1>
+            <div className="w-24 h-1 bg-red-600 my-4 rounded-full shadow-lg"></div>
+            <p className="font-cinzel text-amber-500 tracking-[0.3em] uppercase text-lg md:text-xl font-bold italic">
+              Cucina di Fuoco
+            </p>
+          </div>
           <div className="w-20 h-1 bg-red-600 mx-auto my-6 rounded-full" />
           <p className="text-stone-300 text-base md:text-xl italic font-light leading-relaxed mb-8 md:mb-10 px-2">
             Autenticitate italiană în fiecare farfurie. Ingrediente proaspete, atmosferă caldă, experiență memorabilă.
