@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import OrderPage from './pages/OrderPage';
 import ReviewsPage from './pages/ReviewsPage';
 import SEOItalianTunari from './pages/SEOItalianTunari';
