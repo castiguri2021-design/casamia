@@ -162,11 +162,13 @@ function App() {
       
       {/* 1. HERO VIDEO: PRIMUL LUCRU, FULL SCREEN, OPTIMIZAT PENTRU MOBIL */}
       <header className="relative w-full h-[100dvh] overflow-hidden bg-black">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/videos/poster.jpg"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'contrast(1.15) brightness(0.85)' }}
         >
