@@ -59,34 +59,6 @@ export default function OrderPage() {
   };
 
   const updateQuantity = (id: string, delta: number) => {
-    setCart(prev => {
-      const itemIndex = prev.findIndex(i => i.id === id);
-      if (itemIndex === -1) return prev;
-      
-      const newQty = prev[itemIndex].quantity + delta;
-      if (newQty <= 0) {
-        return prev.filter(i => i.id !== id);
-      }
-      return prev.map((item, idx) => 
-        idx === itemIndex ? { ...item, quantity: newQty } : item
-      );
-    });
-  };
-
-  const updateQuantity = (id: string, delta: number) => {
-    setCart(prev => {
-      const itemIndex = prev.findIndex(i => i.id === id);
-      if (itemIndex === -1) return prev;
-      
-      const newQty = prev[itemIndex].quantity + delta;
-      if (newQty <= 0) {
-        return prev.filter(i => i.id !== id); // Șterge complet dacă ajunge la 0
-      }
-      return prev.map((item, idx) => 
-        idx === itemIndex ? { ...item, quantity: newQty } : item
-      );
-    });
-  };
 
   const removeFromCart = (id: string) => {
     setCart(prev => prev.filter(item => item.id !== id));

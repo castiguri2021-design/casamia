@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import OrderPage from './pages/OrderPage';
 import ReviewsPage from './pages/ReviewsPage';
 import SEOItalianTunari from './pages/SEOItalianTunari';
@@ -147,7 +147,6 @@ function App() {
   }, []);
 
     // Slideshow Logic
-  const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -157,8 +156,6 @@ function App() {
   }, []);
 
   // Slideshow Logic
-  const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
