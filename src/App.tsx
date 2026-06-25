@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import OrderPage from './pages/OrderPage';
 import ReviewsPage from './pages/ReviewsPage';
 import SEOItalianTunari from './pages/SEOItalianTunari';
@@ -135,6 +136,17 @@ const Section = ({ id, title, children, dark = false }: any) => (
 );
 
 function App() {
+  // Slideshow Logic
+  const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4000); // Schimbă poza la fiecare 4 secunde
+    return () => clearInterval(interval);
+  }, []);
+
   const [activeCat, setActiveCat] = useState(foodMenu[0].id);
   const [showTop, setShowTop] = useState(false);
 
@@ -162,11 +174,19 @@ function App() {
       
       {/* 1. HERO IMAGE CU TITLU ȘI BUTON UNIC DE COMANDĂ */}
       <header className="relative w-full h-[100dvh] flex items-center justify-center overflow-hidden bg-black">
-        <img
-          src="/images/loc1.jpg"
-          alt="Ristorante Casa Mia"
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-        />
+        {/* SLIDESHOW BACKGROUND */}
+        <AnimatePresence mode='wait'>
+          <motion.img
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            src={`/images/loc${currentImageIndex + 1}.jpg`}
+            alt="Ristorante Casa Mia"
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-black/50" />
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
