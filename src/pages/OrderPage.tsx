@@ -71,13 +71,13 @@ export default function OrderPage() {
         {/* Meniu */}
         <div className="md:col-span-2 space-y-6">
           {/* Categorii */}
-          <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
+          <div className="flex overflow-x-auto gap-2 pb-3 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
             {foodMenu.map(cat => (
               <button key={cat.id} onClick={() => setActiveCat(cat.id)}
-                className={`px-4 py-2 rounded-full whitespace-nowrap font-bold text-sm transition-all border-2 flex-shrink-0 ${
+                className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full whitespace-nowrap font-bold text-xs md:text-sm transition-all border-2 flex-shrink-0 touch-manipulation active:scale-95 ${
                   activeCat === cat.id
-                    ? 'bg-red-800 text-white border-red-800'
-                    : 'bg-white text-stone-600 border-stone-200'
+                    ? 'bg-red-800 text-white border-red-800 shadow-md'
+                    : 'bg-white text-stone-600 border-stone-200 active:border-red-300'
                 }`}>
                 {cat.name}
               </button>
