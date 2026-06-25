@@ -144,21 +144,9 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-    // Slideshow Logic
+  
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
-  // Slideshow Logic
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
 const [activeCat, setActiveCat] = useState(foodMenu[0].id);
   const [showTop, setShowTop] = useState(false);
@@ -195,6 +183,63 @@ return (
         <Route path="/pizza-tunari" element={<SEOPizzaTunari />} />
         <Route path="/" element={
     <div className="font-sans bg-stone-50 text-stone-800 scroll-smooth">
+
+            {/* HERO SLIDESHOW CU TITLU PREMIUM */}
+            <header className="relative w-full h-[100dvh] flex items-center justify-center overflow-hidden bg-black">
+              <AnimatePresence mode='wait'>
+                <motion.img
+                  key={currentImageIndex}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5 }}
+                  src={heroImages[currentImageIndex]}
+                  alt="Ristorante Casa Mia"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
+              
+              <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+              
+              <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+                <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+                  <div className="flex flex-col items-center mb-12 px-6">
+                    <p className="text-stone-300 tracking-[0.6em] uppercase text-xs md:text-sm font-medium mb-6 drop-shadow-md">
+                      Ristorante
+                    </p>
+                    
+                    <h1 className="font-serif text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-center leading-none tracking-tight" 
+                        style={{ textShadow: '0 4px 30px rgba(0,0,0,0.8)' }}>
+                      Casa Mia
+                    </h1>
+                    
+                    <div className="flex items-center gap-4 my-6">
+                      <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-red-600"></div>
+                      <div className="w-3 h-3 rotate-45 bg-red-600 shadow-lg"></div>
+                      <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-red-600"></div>
+                    </div>
+                    
+                    <p className="font-cinzel text-amber-400 tracking-[0.5em] uppercase text-base md:text-xl font-bold italic"
+                       style={{ textShadow: '0 2px 20px rgba(251,191,36,0.4)' }}>
+                      Cucina di Fuoco
+                    </p>
+                  </div>
+                  
+                  <Link 
+                    to="/meniu" 
+                    className="inline-flex items-center gap-3 px-10 py-5 bg-red-700 hover:bg-red-800 text-white rounded-full font-bold text-xl transition-all hover:scale-105 shadow-2xl border-2 border-white/20 backdrop-blur-sm group"
+                  >
+                    <span className="text-3xl group-hover:rotate-12 transition-transform">🛒</span>
+                    <span>Comandă Online</span>
+                  </Link>
+                  
+                  <p className="text-white/80 text-base md:text-lg mt-6 font-medium drop-shadow-md max-w-lg mx-auto">
+                    Alege preparatele favorite și trimite comanda direct pe WhatsApp
+                  </p>
+                </motion.div>
+              </div>
+            </header>
+
       
       
 
