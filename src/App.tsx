@@ -136,7 +136,6 @@ const Section = ({ id, title, children, dark = false }: any) => (
 
 function App() {
   // Slideshow Logic
-  const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
   
 
   useEffect(() => {
