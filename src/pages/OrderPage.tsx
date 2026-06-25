@@ -74,34 +74,30 @@ export default function OrderPage() {
           )}
         </div>
       </header>
+          {/* CATEGORII - SCROLL SIMPLU */}
+          <div className="w-full bg-white border-b border-stone-200 sticky top-[60px] z-40">
+            <div className="flex overflow-x-auto gap-2 p-2 scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
+              {foodMenu.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCat(cat.id)}
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border whitespace-nowrap ${
+                    activeCat === cat.id
+                      ? 'bg-red-800 text-white border-red-800'
+                      : 'bg-white text-stone-600 border-stone-300'
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
 
       <div className="max-w-6xl mx-auto p-3 md:p-6 grid md:grid-cols-3 gap-4 mt-2">
         {/* Meniu */}
         <div className="md:col-span-2 space-y-4">
           
-          {/* CATEGORII CU SLIDE STÂNGA-DREAPTA */}
-          <div className="relative">
-            {/* Buton slide stânga (doar mobile) */}
-            <button onClick={() => scrollCats('left')} 
-              className="absolute left-0 top-0 bottom-0 z-10 w-8 bg-gradient-to-r from-white to-transparent flex items-center justify-center md:hidden">
-              <ChevronLeft size={20} className="text-red-800" />
-            </button>
-            
-            {/* Container scrollabil */}
-            <div ref={catScrollRef} 
-              className="flex overflow-x-auto gap-2 pb-2 px-8 md:px-0 scrollbar-hide"
-              style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}>
-              {foodMenu.map(cat => (
-                <button key={cat.id} onClick={() => setActiveCat(cat.id)}
-                  className={`px-3 py-1.5 rounded-full whitespace-nowrap font-bold text-xs transition-all border flex-shrink-0 active:scale-95 ${
-                    activeCat === cat.id
-                      ? 'bg-red-800 text-white border-red-800'
-                      : 'bg-white text-stone-600 border-stone-300'
-                  }`}>
-                  {cat.name}
-                </button>
-              ))}
-            </div>
             
             {/* Buton slide dreapta (doar mobile) */}
             <button onClick={() => scrollCats('right')} 
