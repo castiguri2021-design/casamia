@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState} from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Minus, Plus, Trash2, ShoppingCart, Phone, MapPin, User, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Minus, Plus, Trash2, ShoppingCart, Phone, MapPin, User, MessageSquare} from 'lucide-react';
 import { foodMenu } from '../data/foodMenu';
 
 export default function OrderPage() {
@@ -9,14 +9,7 @@ export default function OrderPage() {
   const [customerInfo, setCustomerInfo] = useState({
     name: '', phone: '', address: '', notes: '', deliveryType: 'delivery' as 'delivery' | 'pickup'
   });
-  const catScrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollCats = (dir: 'left' | 'right') => {
-    if (catScrollRef.current) {
-      const amount = dir === 'left' ? -200 : 200;
-      catScrollRef.current.scrollBy({ left: amount, behavior: 'smooth' });
-    }
-  };
 
   const addToCart = (item: any, category: string) => {
     const uniqueId = `${category}-${item.name}`;
@@ -74,17 +67,17 @@ export default function OrderPage() {
           )}
         </div>
       </header>
-          {/* CATEGORII - SCROLL SIMPLU */}
-          <div className="w-full bg-white border-b border-stone-200 sticky top-[60px] z-40">
+          {/* CATEGORII - SCROLL ORIZONTAL SIMPLU */}
+          <div className="w-full bg-white border-b border-stone-200 sticky top-[60px] z-40 shadow-sm">
             <div className="flex overflow-x-auto gap-2 p-2 scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
               {foodMenu.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCat(cat.id)}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border whitespace-nowrap ${
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border whitespace-nowrap active:scale-95 transition-transform ${
                     activeCat === cat.id
-                      ? 'bg-red-800 text-white border-red-800'
-                      : 'bg-white text-stone-600 border-stone-300'
+                      ? 'bg-red-800 text-white border-red-800 shadow-md'
+                      : 'bg-white text-stone-600 border-stone-300 hover:bg-stone-50'
                   }`}
                 >
                   {cat.name}
