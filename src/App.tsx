@@ -67,15 +67,15 @@ function App() {
               
               <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
                 <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                  <div className="flex flex-col items-center gap-4 mb-12">
-                    <p className="font-cinzel text-stone-300 tracking-[0.6em] uppercase text-sm md:text-lg font-medium drop-shadow-md">
+                  <div className="flex flex-col items-center gap-3 mb-10 px-4">
+                    <p className="font-cinzel text-stone-200 tracking-[0.5em] uppercase text-xs md:text-base font-medium drop-shadow-md">
                       Ristorante
                     </p>
-                    <h1 className="font-serif text-white text-7xl md:text-9xl font-bold tracking-tighter drop-shadow-2xl leading-none">
+                    <h1 className="font-serif text-white text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight drop-shadow-2xl leading-none text-center w-full">
                       Casa <span className="text-red-600">Mia</span>
                     </h1>
-                    <div className="w-32 h-1 bg-red-600 rounded-full shadow-lg my-2"></div>
-                    <p className="font-cinzel text-amber-500 tracking-[0.4em] uppercase text-xl md:text-2xl font-bold italic drop-shadow-lg">
+                    <div className="w-24 h-0.5 bg-red-600 rounded-full shadow-lg my-3"></div>
+                    <p className="font-cinzel text-amber-500 tracking-[0.3em] uppercase text-base md:text-xl font-bold italic drop-shadow-lg">
                       Cucina di Fuoco
                     </p>
                   </div>
