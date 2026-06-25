@@ -93,35 +93,35 @@ export default function OrderPage() {
               const inCart = cart.find(c => c.id === `${activeCat}-${item.name}`);
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-xl p-3 md:p-5 shadow-sm border border-stone-100 flex gap-3 md:gap-4 active:scale-[0.98] transition-transform">
+                  className="bg-white rounded-xl p-2.5 sm:p-4 shadow-sm border border-stone-100 flex gap-2 sm:gap-4 active:scale-[0.98] transition-transform">
                   
                   <img src={`/images/food/${item.image}`} alt={item.name} 
-                    className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-lg bg-stone-100 flex-shrink-0 border border-stone-200"
+                    className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-lg bg-stone-100 flex-shrink-0 border border-stone-200"
                     onError={(e) => (e.target as HTMLImageElement).src = '/images/loc1.jpg'} />
                     
-                  <div className="flex-1 min-w-0 flex flex-col justify-between">
+                  <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
                     <div>
-                      <h3 className="font-serif font-bold text-sm md:text-lg text-stone-900 leading-tight mb-1">{item.name}</h3>
-                      <p className="text-[11px] md:text-xs text-stone-500 line-clamp-2 mb-2">{item.ingredients}</p>
+                      <h3 className="font-serif font-bold text-xs sm:text-lg text-stone-900 leading-tight mb-0.5 sm:mb-1">{item.name}</h3>
+                      <p className="text-[10px] sm:text-xs text-stone-500 line-clamp-2 mb-1 sm:mb-2 leading-snug">{item.ingredients}</p>
                     </div>
-                    <div className="flex items-center justify-between mt-auto">
-                      <span className="text-red-800 font-black text-base md:text-xl">{item.price} LEI</span>
+                    <div className="flex items-center justify-between mt-auto pt-1">
+                      <span className="text-red-800 font-black text-sm sm:text-xl whitespace-nowrap">{item.price} LEI</span>
                       
                       {inCart ? (
-                        <div className="flex items-center gap-1 bg-stone-100 rounded-full p-0.5 border border-stone-200">
+                        <div className="flex items-center gap-0.5 sm:gap-1 bg-stone-100 rounded-full p-0.5 border border-stone-200 flex-shrink-0">
                           <button onClick={() => updateQuantity(inCart.id, -1)} 
-                            className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-red-800 active:bg-red-50">
+                            className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-red-800 active:bg-red-50 touch-manipulation">
                             <Minus size={14} strokeWidth={3} />
                           </button>
-                          <span className="font-black text-xs md:text-sm w-5 md:w-6 text-center">{inCart.quantity}</span>
+                          <span className="font-black text-xs sm:text-sm w-5 sm:w-6 text-center">{inCart.quantity}</span>
                           <button onClick={() => updateQuantity(inCart.id, 1)} 
-                            className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-red-800 rounded-full shadow-sm text-white active:bg-red-900">
+                            className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-red-800 rounded-full shadow-sm text-white active:bg-red-900 touch-manipulation">
                             <Plus size={14} strokeWidth={3} />
                           </button>
                         </div>
                       ) : (
                         <button onClick={() => addToCart(item, activeCat)} 
-                          className="bg-red-800 text-white px-3 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-bold active:bg-red-900 shadow-sm border border-red-950">
+                          className="bg-red-800 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-sm font-bold active:bg-red-900 shadow-sm border border-red-950 whitespace-nowrap touch-manipulation min-w-[70px]">
                           Adaugă
                         </button>
                       )}
