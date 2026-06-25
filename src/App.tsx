@@ -175,15 +175,17 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-stone-300 tracking-[0.5em] uppercase text-sm md:text-base mb-2 font-medium">
-              Ristorante
-            </p>
-            <h1 className="font-serif font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-2 drop-shadow-xl">
-              Casa Mia
-            </h1>
-            <p className="text-amber-500 font-cinzel tracking-[0.3em] uppercase text-lg md:text-xl font-bold italic mb-8">
-              Cucina di Fuoco
-            </p>
+            <div className="flex flex-col items-center gap-2 mb-8">
+              <p className="font-serif text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-wide drop-shadow-xl">
+                Ristorante
+              </p>
+              <h1 className="font-serif text-white text-6xl md:text-8xl lg:text-9xl font-bold tracking-wider drop-shadow-2xl">
+                Casa Mia
+              </h1>
+              <p className="font-serif text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-wide drop-shadow-xl">
+                Cucina di Fuoco
+              </p>
+            </div>
             
             {/* UNICUL BUTON DE COMANDĂ ONLINE */}
             <Link 
