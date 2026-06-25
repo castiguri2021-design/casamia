@@ -288,6 +288,97 @@ function App() {
             </a>
           </div>
 
+          {/* Formular Rezervare */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto mb-8 bg-stone-800 rounded-2xl p-6 md:p-8 border border-stone-700"
+          >
+            <h3 className="font-serif text-2xl font-bold text-center mb-6 text-white">Rezervă o Masă</h3>
+            <form 
+              action="https://wa.me/40720718719" 
+              method="get" 
+              target="_blank"
+              className="space-y-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get('name');
+                const phone = formData.get('phone');
+                const date = formData.get('date');
+                const time = formData.get('time');
+                const guests = formData.get('guests');
+                const message = `Rezervare nouă:%0A%0ANume: ${name}%0ATelefon: ${phone}%0AData: ${date}%0AOra: ${time}%0APersoane: ${guests}`;
+                window.open(`https://wa.me/40720718719?text=${message}`, '_blank');
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Nume complet *"
+                  required
+                  className="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-red-800"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Telefon *"
+                  required
+                  className="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-red-800"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  className="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-800"
+                />
+                <input
+                  type="time"
+                  name="time"
+                  required
+                  className="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-800"
+                />
+                <select
+                  name="guests"
+                  required
+                  className="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-800"
+                >
+                  <option value="">Persoane</option>
+                  <option value="1">1 persoană</option>
+                  <option value="2">2 persoane</option>
+                  <option value="3">3 persoane</option>
+                  <option value="4">4 persoane</option>
+                  <option value="5">5 persoane</option>
+                  <option value="6">6 persoane</option>
+                  <option value="7">7+ persoane</option>
+                </select>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-red-800 hover:bg-red-900 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                <Phone size={20} />
+                Trimite Rezervarea pe WhatsApp
+              </button>
+            </form>
+          </motion.div>
+
+          {/* Buton Comandă Online */}
+          <div className="text-center mb-8">
+            <a 
+              href="/meniu" 
+              className="inline-flex items-center gap-3 px-8 py-4 bg-red-800 hover:bg-red-900 text-white font-bold rounded-full transition-all hover:scale-105 shadow-lg"
+            >
+              <span className="text-2xl">🛒</span>
+              <span className="text-lg">Comandă Online</span>
+            </a>
+            <p className="text-stone-400 text-sm mt-3">Alege preparatele favorite și trimite comanda pe WhatsApp</p>
+          </div>
+
           {/* Hartă Google Maps */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="mb-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-stone-700">
@@ -349,9 +440,6 @@ function App() {
       </footer>
 
       <SocialMediaWidget />
-      <a href="/meniu" className="fixed top-4 right-4 z-40 bg-red-800 hover:bg-red-900 text-white px-4 py-2 rounded-full shadow-lg transition-all hover:scale-105 flex items-center gap-2 text-sm font-medium">
-        🛒 Comandă Online
-      </a>
       <ChatWidget />
       <AnimatePresence>
         {showTop && (

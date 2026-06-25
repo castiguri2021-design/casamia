@@ -57,29 +57,8 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  <script src="/static/js/reservation.js"></script>
+  
 
-<button id="openReservationBtn" style="position:fixed; bottom:20px; right:20px; background:#d4af37; color:#fff; padding:15px 25px; border-radius:50px; border:none; box-shadow:0 4px 10px rgba(0,0,0,0.3); font-size:1.1rem; font-weight:bold; z-index:999; display:flex; align-items:center; gap:8px;">📅 Rezervă</button>
-<div id="reservationModal">
-  <div class="modal-content">
-    <button class="modal-close" id="closeReservationModal">&times;</button>
-    <h2>Rezervă o Masă</h2>
-    <form id="reservationForm">
-      <input type="text" name="name" placeholder="Nume complet" required>
-      <input type="tel" name="phone" placeholder="Telefon" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="date" name="date" required>
-      <input type="time" name="time" required>
-      <select name="guests" required>
-        <option value="">Număr persoane</option>
-        <option value="1">1 Persoană</option><option value="2">2 Persoane</option>
-        <option value="3">3 Persoane</option><option value="4">4 Persoane</option>
-        <option value="5">5+ Persoane</option>
-      </select>
-      <textarea name="notes" placeholder="Mențiuni (opțional)"></textarea>
-      <button type="submit" style="background:#d4af37; color:#fff; padding:16px; border:none; border-radius:8px; font-size:1.1rem; font-weight:bold; width:100%;">Trimite Rezervarea</button>
-    </form>
-  </div>
 </div>
 
 <script src="/static/js/lightbox.js"></script>
@@ -112,5 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     </script>
     
-</body>
+
+    </body>
 </html>

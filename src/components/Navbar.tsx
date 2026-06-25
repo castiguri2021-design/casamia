@@ -9,7 +9,6 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,10 +49,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Link to="/meniu" className="hidden md:flex items-center gap-2 px-4 py-2 bg-red-800 hover:bg-red-900 text-white rounded-full text-sm font-medium transition-colors">
-                <span>🛒 Comandă Online</span>
-              </Link>
-              <a href="tel:+40720718719" className="flex items-center gap-2 text-sm text-mia-gold hover:text-white transition-colors">
+            <a href="tel:+40720718719" className="flex items-center gap-2 text-sm text-mia-gold hover:text-white transition-colors">
               <Phone size={14} />
               <span>+40 720 718 719</span>
             </a>
