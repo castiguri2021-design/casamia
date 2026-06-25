@@ -5,7 +5,7 @@ import ReviewsPage from './pages/ReviewsPage';
 import SEOItalianTunari from './pages/SEOItalianTunari';
 import SEOPizzaTunari from './pages/SEOPizzaTunari';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MapPin, Clock, Mail, ChevronUp, MessageCircle, X, Send, UtensilsCrossed, Navigation, ExternalLink , ArrowRight } from 'lucide-react';
+import { Phone, MapPin, Clock, Mail, ChevronUp, MessageCircle, X, Send, UtensilsCrossed, Navigation, ExternalLink  } from 'lucide-react';
 
 // Social Media Icons
 const FacebookIcon = () => (
