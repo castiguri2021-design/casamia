@@ -169,7 +169,7 @@ function App() {
           playsInline
           preload="metadata"
           poster="/videos/poster.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain bg-black"
           style={{ filter: 'contrast(1.15) brightness(0.85)' }}
         >
           <source src="/videos/video1.mp4" type="video/mp4" />
