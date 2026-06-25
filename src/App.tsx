@@ -58,27 +58,27 @@ function App() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1.5 }}
                   src={heroImages[currentImageIndex]}
-                  alt="Ristorante Casa Mia"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </AnimatePresence>
-              
-              <div className="absolute inset-0 bg-black/60 pointer-events-none" />
-              
-              <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
-                <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                  <div className="flex flex-col items-center gap-3 mb-10 px-4">
-                    <p className="font-cinzel text-stone-200 tracking-[0.5em] uppercase text-xs md:text-base font-medium drop-shadow-md">
+                  alt="                  <div className="flex flex-col items-center mb-12 px-6">
+                    <p className="text-stone-300 tracking-[0.6em] uppercase text-xs md:text-sm font-medium mb-6 drop-shadow-md">
                       Ristorante
                     </p>
-                    <h1 className="font-serif text-white text-5xl md:text-7xl font-bold text-center leading-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.9)' }}>
-                      Ristorante<br/>
-                      Casa Mia<br/>
-                      Cucina di Fuoco
+                    
+                    <h1 className="font-serif text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-center leading-none tracking-tight" 
+                        style={{ textShadow: '0 4px 30px rgba(0,0,0,0.8)' }}>
+                      Casa Mia
                     </h1>
-                    <div className="w-24 h-0.5 bg-red-600 rounded-full shadow-lg my-3"></div>
-                    <p className="font-cinzel text-amber-500 tracking-[0.3em] uppercase text-base md:text-xl font-bold italic drop-shadow-lg">
+                    
+                    <div className="flex items-center gap-4 my-6">
+                      <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-red-600"></div>
+                      <div className="w-3 h-3 rotate-45 bg-red-600 shadow-lg"></div>
+                      <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-red-600"></div>
+                    </div>
+                    
+                    <p className="font-cinzel text-amber-400 tracking-[0.5em] uppercase text-base md:text-xl font-bold italic"
+                       style={{ textShadow: '0 2px 20px rgba(251,191,36,0.4)' }}>
                       Cucina di Fuoco
+                    </p>
+                  </div>
                     </p>
                   </div>
                   
