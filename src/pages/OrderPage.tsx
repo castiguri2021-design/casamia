@@ -52,17 +52,17 @@ export default function OrderPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-stone-900 pb-32 md:pb-20">
+    <div className="min-h-screen bg-stone-50 text-stone-900 pb-32 md:pb-20">
       {/* Header Sticky */}
       <header className="bg-red-900 text-white px-4 py-3 sticky top-0 z-50 shadow-lg flex items-center justify-between border-b-4 border-red-950">
         <Link to="/" className="flex items-center gap-2 font-bold active:opacity-70">
           <ArrowLeft size={22} /> <span className="text-sm md:text-base">Înapoi</span>
         </Link>
         <h1 className="font-serif font-bold text-lg md:text-xl">Comandă Online</h1>
-        <button onClick={() => setShowCheckout(!showCheckout)} className="relative active:opacity-70">
+        <button onClick={() => setShowCheckout(!showCheckout)} className="relative active:opacity-70 p-1">
           <ShoppingCart size={24} />
           {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-amber-500 text-black text-[10px] font-black rounded-full w-5 h-5 flex items-center justify-center border-2 border-red-900">
+            <span className="absolute -top-1 -right-1 bg-amber-500 text-black text-[10px] font-black rounded-full w-5 h-5 flex items-center justify-center border-2 border-red-900">
               {totalItems}
             </span>
           )}
@@ -74,7 +74,7 @@ export default function OrderPage() {
         {/* MENIU */}
         <div className="lg:col-span-2 space-y-4">
           {/* Categorii - scroll orizontal pe mobile */}
-          <div className="flex overflow-x-auto gap-2 pb-3 scrollbar-hide -mx-3 px-3 md:mx-0 md:px-0 md:gap-3">
+          <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide -mx-3 px-3 md:mx-0 md:px-0 md:gap-3 border-b border-stone-200 md:border-none">
             {foodMenu.map(cat => (
               <button key={cat.id} onClick={() => setActiveCat(cat.id)}
                 className={`px-4 py-2 rounded-full whitespace-nowrap font-bold text-xs md:text-sm transition-all border-2 flex-shrink-0 active:scale-95 ${
@@ -93,36 +93,42 @@ export default function OrderPage() {
               const inCart = cart.find(c => c.id === `${activeCat}-${item.name}`);
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-xl p-2.5 sm:p-4 shadow-sm border border-stone-100 flex gap-2 sm:gap-4 active:scale-[0.98] transition-transform">
+                  className="bg-white rounded-xl overflow-hidden shadow-sm border border-stone-100 active:scale-[0.98] transition-transform flex flex-col sm:flex-row">
                   
-                  <img src={`/images/food/${item.image}`} alt={item.name} 
-                    className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-lg bg-stone-100 flex-shrink-0 border border-stone-200"
-                    onError={(e) => (e.target as HTMLImageElement).src = '/images/loc1.jpg'} />
+                  {/* IMAGINE - Full width pe mobile, fixă pe desktop */}
+                  <div className="relative w-full sm:w-28 md:w-32 h-40 sm:h-auto flex-shrink-0 bg-stone-100">
+                    <img src={`/images/food/${item.image}`} alt={item.name} 
+                      className="w-full h-full object-cover"
+                      onError={(e) => (e.target as HTMLImageElement).src = '/images/loc1.jpg'} />
+                  </div>
                     
-                  <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+                  {/* DETALII & BUTON */}
+                  <div className="p-3 md:p-4 flex-1 flex flex-col justify-between min-w-0">
                     <div>
-                      <h3 className="font-serif font-bold text-xs sm:text-lg text-stone-900 leading-tight mb-0.5 sm:mb-1">{item.name}</h3>
-                      <p className="text-[10px] sm:text-xs text-stone-500 line-clamp-2 mb-1 sm:mb-2 leading-snug">{item.ingredients}</p>
+                      <h3 className="font-serif font-bold text-sm md:text-lg text-stone-900 leading-tight mb-1">{item.name}</h3>
+                      <p className="text-[11px] md:text-xs text-stone-500 line-clamp-2 mb-2 leading-snug">{item.ingredients}</p>
                     </div>
-                    <div className="flex items-center justify-between mt-auto pt-1">
-                      <span className="text-red-800 font-black text-sm sm:text-xl whitespace-nowrap">{item.price} LEI</span>
+                    
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-stone-50 sm:border-none sm:pt-0 sm:mt-0">
+                      <span className="text-red-800 font-black text-base md:text-xl">{item.price} LEI</span>
                       
                       {inCart ? (
-                        <div className="flex items-center gap-0.5 sm:gap-1 bg-stone-100 rounded-full p-0.5 border border-stone-200 flex-shrink-0">
+                        <div className="flex items-center gap-1 bg-stone-100 rounded-full p-0.5 border border-stone-200">
                           <button onClick={() => updateQuantity(inCart.id, -1)} 
-                            className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-red-800 active:bg-red-50 touch-manipulation">
-                            <Minus size={14} strokeWidth={3} />
+                            className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-red-800 active:bg-red-50 touch-manipulation">
+                            <Minus size={16} strokeWidth={3} />
                           </button>
-                          <span className="font-black text-xs sm:text-sm w-5 sm:w-6 text-center">{inCart.quantity}</span>
+                          <span className="font-black text-sm w-6 text-center">{inCart.quantity}</span>
                           <button onClick={() => updateQuantity(inCart.id, 1)} 
-                            className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-red-800 rounded-full shadow-sm text-white active:bg-red-900 touch-manipulation">
-                            <Plus size={14} strokeWidth={3} />
+                            className="w-8 h-8 flex items-center justify-center bg-red-800 rounded-full shadow-sm text-white active:bg-red-900 touch-manipulation">
+                            <Plus size={16} strokeWidth={3} />
                           </button>
                         </div>
                       ) : (
+                        /* BUTON ADAUGĂ - LAT PE MOBILE, COMPACT PE DESKTOP */
                         <button onClick={() => addToCart(item, activeCat)} 
-                          className="bg-red-800 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-sm font-bold active:bg-red-900 shadow-sm border border-red-950 whitespace-nowrap touch-manipulation min-w-[70px]">
-                          Adaugă
+                          className="w-full sm:w-auto bg-red-800 text-white px-4 py-2 sm:py-1.5 rounded-lg sm:rounded-full text-xs sm:text-sm font-bold active:bg-red-900 shadow-sm border border-red-950 whitespace-nowrap touch-manipulation">
+                          Adaugă în Coș
                         </button>
                       )}
                     </div>
@@ -133,7 +139,7 @@ export default function OrderPage() {
           </div>
         </div>
 
-        {/* COS & CHECKOUT - Pe desktop e sidebar, pe mobile e modal/bottom sheet */}
+        {/* COS & CHECKOUT */}
         <div className={`lg:col-span-1 ${showCheckout ? 'fixed inset-0 z-[60] bg-black/50 flex items-end md:items-center justify-center' : 'hidden lg:block'}`}>
           <div className={`bg-white rounded-t-2xl md:rounded-2xl p-4 md:p-6 shadow-2xl border border-stone-200 w-full md:w-auto ${showCheckout ? 'max-h-[85vh] overflow-y-auto animate-slide-up' : 'sticky top-24'}`}>
             
@@ -237,7 +243,7 @@ export default function OrderPage() {
 
       {/* BARA STICKY JOS PE MOBILE */}
       {totalItems > 0 && !showCheckout && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-stone-200 p-3 md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-stone-200 p-3 md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.1)] safe-area-pb">
           <button onClick={() => setShowCheckout(true)} 
             className="w-full bg-red-800 text-white font-black py-3.5 rounded-xl flex items-center justify-between px-5 active:scale-[0.98]">
             <div className="flex items-center gap-3">
