@@ -48,23 +48,29 @@ export default function OrderPage() {
   }, [cart]);
 
   const addToCart = (item: { id: string; name: string; price: number; image?: string }, category: string) => {
+    const uniqueId = \`\${category}-\${item.name}\`; // ID unic bazat pe categorie + nume
     setCart(prev => {
-      const existing = prev.find(i => i.id === item.id);
+      const existing = prev.find(i => i.id === uniqueId);
       if (existing) {
-        return prev.map(i => i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i);
+        return prev.map(i => i.id === uniqueId ? { ...i, quantity: i.quantity + 1 } : i);
       }
-      return [...prev, { ...item, quantity: 1, category }];
+      return [...prev, { ...item, id: uniqueId, quantity: 1, category }];
     });
   };
 
   const updateQuantity = (id: string, delta: number) => {
-    setCart(prev => prev.map(item => {
-      if (item.id === id) {
-        const newQty = item.quantity + delta;
-        return newQty > 0 ? { ...item, quantity: newQty } : item;
+    setCart(prev => {
+      const itemIndex = prev.findIndex(i => i.id === id);
+      if (itemIndex === -1) return prev;
+      
+      const newQty = prev[itemIndex].quantity + delta;
+      if (newQty <= 0) {
+        return prev.filter(i => i.id !== id); // Șterge complet dacă ajunge la 0
       }
-      return item;
-    }).filter(item => item.quantity > 0));
+      return prev.map((item, idx) => 
+        idx === itemIndex ? { ...item, quantity: newQty } : item
+      );
+    });
   };
 
   const removeFromCart = (id: string) => {
