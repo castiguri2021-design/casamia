@@ -89,29 +89,32 @@ export default function OrderPage() {
             {foodMenu.find(c => c.id === activeCat)?.items.map((item: any, i: number) => {
               const inCart = cart.find(c => c.id === `${activeCat}-${item.name}`);
               return (
-                <div key={i} className="bg-white rounded-xl p-4 shadow-sm border border-stone-200 flex gap-4 items-center">
+                <div key={i} className="bg-white rounded-xl p-4 shadow-sm border border-stone-200 flex gap-4">
                   <img src={`/images/food/${item.image}`} alt={item.name}
-                    className="w-20 h-20 object-cover rounded-lg bg-stone-100 flex-shrink-0 border border-stone-200"
+                    className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-lg bg-stone-100 flex-shrink-0 border border-stone-200"
                     onError={(e) => (e.target as HTMLImageElement).src = '/images/loc1.jpg'} />
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-stone-900 text-base leading-tight mb-1">{item.name}</h3>
-                    <p className="text-xs text-stone-500 line-clamp-2 mb-2">{item.ingredients}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-red-800 font-black text-lg">{item.price} LEI</span>
+                  <div className="flex-1 min-w-0 flex flex-col">
+                    <h3 className="font-bold text-stone-900 text-sm md:text-base leading-tight mb-1">{item.name}</h3>
+                    <p className="text-[11px] md:text-xs text-stone-500 line-clamp-2 mb-auto">{item.ingredients}</p>
+                    
+                    {/* PREȚ + BUTON PE RÂNDURI SEPARATE */}
+                    <div className="mt-2 space-y-2">
+                      <span className="text-red-800 font-black text-lg md:text-xl block">{item.price} LEI</span>
+                      
                       {inCart ? (
-                        <div className="flex items-center gap-2 bg-stone-100 rounded-full px-2 py-1 border border-stone-200">
-                          <button onClick={() => updateQuantity(inCart.id, -1)} className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-red-800">
+                        <div className="flex items-center gap-2 bg-stone-100 rounded-full px-2 py-1 border border-stone-200 w-fit">
+                          <button onClick={() => updateQuantity(inCart.id, -1)} className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-red-800 touch-manipulation">
                             <Minus size={16} strokeWidth={3} />
                           </button>
                           <span className="font-black text-sm w-5 text-center">{inCart.quantity}</span>
-                          <button onClick={() => updateQuantity(inCart.id, 1)} className="w-8 h-8 flex items-center justify-center bg-red-800 rounded-full shadow-sm text-white">
+                          <button onClick={() => updateQuantity(inCart.id, 1)} className="w-8 h-8 flex items-center justify-center bg-red-800 rounded-full shadow-sm text-white touch-manipulation">
                             <Plus size={16} strokeWidth={3} />
                           </button>
                         </div>
                       ) : (
                         <button onClick={() => addToCart(item, activeCat)}
-                          className="bg-red-800 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md border border-red-950">
-                          Adaugă
+                          className="w-full md:w-auto bg-red-800 text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-md border border-red-950 touch-manipulation active:bg-red-900">
+                          Adaugă în Coș
                         </button>
                       )}
                     </div>
