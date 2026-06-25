@@ -71,8 +71,10 @@ function App() {
                     <p className="font-cinzel text-stone-200 tracking-[0.5em] uppercase text-xs md:text-base font-medium drop-shadow-md">
                       Ristorante
                     </p>
-                    <h1 className="font-serif text-white text-6xl sm:text-7xl md:text-8xl font-black tracking-tight leading-none text-center w-full" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}>
-                      Casa <span className="text-red-600" style={{ textShadow: '0 4px 20px rgba(220,38,38,0.5)' }}>Mia</span>
+                    <h1 className="font-serif text-white text-5xl md:text-7xl font-bold text-center leading-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.9)' }}>
+                      Ristorante<br/>
+                      Casa Mia<br/>
+                      Cucina di Fuoco
                     </h1>
                     <div className="w-24 h-0.5 bg-red-600 rounded-full shadow-lg my-3"></div>
                     <p className="font-cinzel text-amber-500 tracking-[0.3em] uppercase text-base md:text-xl font-bold italic drop-shadow-lg">
