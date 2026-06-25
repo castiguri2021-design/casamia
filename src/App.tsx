@@ -173,7 +173,18 @@ const [activeCat, setActiveCat] = useState(foodMenu[0].id);
     return () => window.removeEventListener('scroll', h);
   }, []);
 
-  return (
+    // Slideshow Logic
+  const heroImages = ['/images/loc1.jpg', '/images/loc2.jpg', '/images/loc3.jpg', '/images/loc4.jpg'];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+return (
     <Router>
       <Routes>
         <Route path="/meniu" element={<OrderPage />} />
