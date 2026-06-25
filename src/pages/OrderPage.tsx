@@ -48,13 +48,28 @@ export default function OrderPage() {
   }, [cart]);
 
   const addToCart = (item: { id: string; name: string; price: number; image?: string }, category: string) => {
-    const uniqueId = \`\${category}-\${item.name}\`; // ID unic bazat pe categorie + nume
+    const uniqueId = `${category}-${item.name}`;
     setCart(prev => {
       const existing = prev.find(i => i.id === uniqueId);
       if (existing) {
         return prev.map(i => i.id === uniqueId ? { ...i, quantity: i.quantity + 1 } : i);
       }
       return [...prev, { ...item, id: uniqueId, quantity: 1, category }];
+    });
+  };
+
+  const updateQuantity = (id: string, delta: number) => {
+    setCart(prev => {
+      const itemIndex = prev.findIndex(i => i.id === id);
+      if (itemIndex === -1) return prev;
+      
+      const newQty = prev[itemIndex].quantity + delta;
+      if (newQty <= 0) {
+        return prev.filter(i => i.id !== id);
+      }
+      return prev.map((item, idx) => 
+        idx === itemIndex ? { ...item, quantity: newQty } : item
+      );
     });
   };
 

@@ -97,15 +97,7 @@ const ChatWidget = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}
             className="fixed bottom-20 left-4 right-4 md:left-6 md:right-auto z-50 w-auto md:w-96 bg-white rounded-2xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden h-[70vh] md:h-[500px]">
             <div className="bg-red-900 text-white p-4 flex items-center gap-2">
-              <UtensilsCrossed size={20} /> <span className="font-serif font-bold">Asistent Casa Mia
-                    </h1>
-                    <div className="flex items-center gap-4 my-6">
-                      <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-red-600"></div>
-                      <div className="w-3 h-3 rotate-45 bg-red-600 shadow-lg"></div>
-                      <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-red-600"></div>
-                    </div>
-                    <p className="font-cinzel text-amber-400 tracking-[0.5em] uppercase text-base md:text-xl font-bold italic" style={{ textShadow: '0 2px 20px rgba(251,191,36,0.4)' }}>Cucina di Fuoco</p>
-                  </div></span>
+              <UtensilsCrossed size={20} /> <span className="font-serif font-bold">Asistent Casa Mia</span>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-stone-50">
               {messages.length === 0 && <p className="text-stone-500 text-sm italic text-center">Bună! Cu ce te pot ajuta astăzi?</p>}
@@ -208,15 +200,7 @@ const [activeCat, setActiveCat] = useState(foodMenu[0].id);
           <motion.img initial={{ x: -30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}
             src="/images/loc1.jpg" alt="Interior" className="rounded-2xl shadow-xl w-full h-64 md:h-80 object-cover" />
           <div className="space-y-4 text-base md:text-lg leading-relaxed text-stone-600 text-center md:text-left">
-            <p>La <strong className="text-red-900">Ristorante Casa Mia
-                    </h1>
-                    <div className="flex items-center gap-4 my-6">
-                      <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-red-600"></div>
-                      <div className="w-3 h-3 rotate-45 bg-red-600 shadow-lg"></div>
-                      <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-red-600"></div>
-                    </div>
-                    <p className="font-cinzel text-amber-400 tracking-[0.5em] uppercase text-base md:text-xl font-bold italic" style={{ textShadow: '0 2px 20px rgba(251,191,36,0.4)' }}>Cucina di Fuoco</p>
-                  </div></strong>, aducem Italia mai aproape de tine. Fiecare farfurie este o poveste despre ingrediente proaspete, rețete tradiționale și pasiune pentru focul bucătăriei.</p>
+            <p>La <strong className="text-red-900">Ristorante Casa Mia</strong>, aducem Italia mai aproape de tine. Fiecare farfurie este o poveste despre ingrediente proaspete, rețete tradiționale și pasiune pentru focul bucătăriei.</p>
             <p>Situați în inima zonei Tunari, lângă Otopeni, vă invităm să vă deconectați de la ritmul alert și să vă bucurați de o atmosferă caldă, specific italiană.</p>
           </div>
         </div>
@@ -455,15 +439,7 @@ const [activeCat, setActiveCat] = useState(foodMenu[0].id);
       </section>
 
       <footer className="bg-stone-950 text-stone-500 py-6 text-center text-xs md:text-sm border-t border-stone-800 px-4">
-        © {new Date().getFullYear()} Ristorante Casa Mia
-                    </h1>
-                    <div className="flex items-center gap-4 my-6">
-                      <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-red-600"></div>
-                      <div className="w-3 h-3 rotate-45 bg-red-600 shadow-lg"></div>
-                      <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-red-600"></div>
-                    </div>
-                    <p className="font-cinzel text-amber-400 tracking-[0.5em] uppercase text-base md:text-xl font-bold italic" style={{ textShadow: '0 2px 20px rgba(251,191,36,0.4)' }}>Cucina di Fuoco</p>
-                  </div> • Cucina di Fuoco. Toate drepturile rezervate.
+        © {new Date().getFullYear()} Ristorante Casa Mia • Cucina di Fuoco. Toate drepturile rezervate.
       </footer>
 
       <SocialMediaWidget />
