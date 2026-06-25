@@ -202,7 +202,7 @@ return (
       <Section id="despre" title="Despre Noi">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           <motion.img initial={{ x: -30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}
-            src="/images/loc1.jpg" alt="Interior" className="rounded-2xl shadow-xl w-full h-64 md:h-80 object-cover" />
+            src={heroImages[currentImageIndex]} alt="Interior" className="rounded-2xl shadow-xl w-full h-64 md:h-80 object-cover" />
           <div className="space-y-4 text-base md:text-lg leading-relaxed text-stone-600 text-center md:text-left">
             <p>La <strong className="text-red-900">Ristorante Casa Mia</strong>, aducem Italia mai aproape de tine. Fiecare farfurie este o poveste despre ingrediente proaspete, rețete tradiționale și pasiune pentru focul bucătăriei.</p>
             <p>Situați în inima zonei Tunari, lângă Otopeni, vă invităm să vă deconectați de la ritmul alert și să vă bucurați de o atmosferă caldă, specific italiană.</p>
