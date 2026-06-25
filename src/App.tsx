@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import OrderPage from './pages/OrderPage';
+import ReviewsPage from './pages/ReviewsPage';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, Clock, Mail, ChevronUp, MessageCircle, X, Send, UtensilsCrossed, Navigation, ExternalLink } from 'lucide-react';
 
@@ -51,6 +52,7 @@ const SocialMediaWidget = () => (
   </div>
 );
 import { foodMenu } from './data/foodMenu';
+import Reviews from './components/Reviews';
 
 // Chat Component
 const ChatWidget = () => {
@@ -148,6 +150,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/meniu" element={<OrderPage />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/" element={
     <div className="font-sans bg-stone-50 text-stone-800 scroll-smooth">
       
@@ -256,6 +259,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* RECENZII CLIENȚI */}
+      <Reviews />
 
       {/* CONTACT CU HARTĂ ȘI BUTOANE NAVIGARE */}
       <section id="contact" className="py-16 md:py-20 px-4 md:px-8 bg-stone-900 text-stone-100">
