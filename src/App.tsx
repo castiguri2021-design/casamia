@@ -160,21 +160,44 @@ function App() {
         <Route path="/" element={
     <div className="font-sans bg-stone-50 text-stone-800 scroll-smooth">
       
-      {/* 1. HERO VIDEO: PRIMUL LUCRU, FULL SCREEN, OPTIMIZAT PENTRU MOBIL */}
-      <header className="relative w-full h-[100dvh] overflow-hidden bg-black">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/videos/poster.jpg"
-          className="absolute inset-0 w-full h-full object-contain bg-black"
-          style={{ filter: 'contrast(1.15) brightness(0.85)' }}
-        >
-          <source src="/videos/video1.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10" />
+      {/* 1. HERO IMAGE CU TITLU ȘI BUTON UNIC DE COMANDĂ */}
+      <header className="relative w-full h-[100dvh] flex items-center justify-center overflow-hidden bg-black">
+        <img
+          src="/images/loc1.jpg"
+          alt="Ristorante Casa Mia"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="text-stone-300 tracking-[0.5em] uppercase text-sm md:text-base mb-2 font-medium">
+              Ristorante
+            </p>
+            <h1 className="font-serif font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-2 drop-shadow-xl">
+              Casa Mia
+            </h1>
+            <p className="text-amber-500 font-cinzel tracking-[0.3em] uppercase text-lg md:text-xl font-bold italic mb-8">
+              Cucina di Fuoco
+            </p>
+            
+            {/* UNICUL BUTON DE COMANDĂ ONLINE */}
+            <Link 
+              to="/meniu" 
+              className="inline-flex items-center gap-3 px-10 py-4 bg-red-700 hover:bg-red-800 text-white rounded-full font-bold text-lg transition-all hover:scale-105 shadow-2xl border border-white/30 backdrop-blur-md"
+            >
+              <span className="text-2xl">🛒</span>
+              <span>Comandă Online</span>
+            </Link>
+            <p className="text-white/90 text-sm mt-4 font-medium drop-shadow-md max-w-md mx-auto">
+              Alege preparatele favorite și trimite comanda pe WhatsApp
+            </p>
+          </motion.div>
+        </div>
       </header>
 
 
