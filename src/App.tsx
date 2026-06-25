@@ -177,32 +177,7 @@ function App() {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10" />
       </header>
 
-      {/* SECȚIUNE COMANDĂ ONLINE - DUPA VIDEO */}
-      <section className="relative z-20 bg-white py-12 md:py-16 px-4 text-center shadow-lg">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="text-6xl mb-4">🛒</div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-800 mb-4">
-              Comandă Online
-            </h2>
-            <p className="text-stone-600 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-              Alege preparatele favorite și trimite comanda pe WhatsApp
-            </p>
-            <Link 
-              to="/meniu" 
-              className="inline-flex items-center gap-3 px-8 py-4 bg-red-800 hover:bg-red-900 text-white rounded-full font-bold text-lg transition-all hover:scale-105 shadow-xl"
-            >
-              <span>Vezi Meniul și Comandă</span>
-              <ArrowRight size={24} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* 2. INTRO TEXT */}
       <section className="relative z-20 bg-stone-950 text-stone-100 py-16 md:py-24 px-4 text-center border-t border-stone-800">
